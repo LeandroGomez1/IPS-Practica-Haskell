@@ -4,8 +4,8 @@ five x = 5
 apply :: p -> p
 apply f = f
 
-id :: p -> p
-id x = x
+id1 :: p -> p
+id1 x = x
 
 first :: p1 -> p2 -> p1
 first x y = x
