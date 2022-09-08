@@ -1,4 +1,5 @@
 --Minimo de una lista
+minimo :: Ord a => [a] -> a
 minimo [] = error "Lista vacia"
 minimo [x] = x
 minimo (x:y:t)
