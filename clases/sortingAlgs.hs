@@ -1,9 +1,9 @@
 -------------------
 --- Selection Sort
 
-delete :: Eq a => a -> [a] -> [a]
-delete y [] = []
-delete y l = [x | x <- l, x /= y]
+mdelete :: Eq a => a -> [a] -> [a]
+mdelete y [] = []
+mdelete y l = [x | x <- l, x /= y]
 
 minimo :: Ord a => [a] -> a
 minimo [] = error "Lista vacia."
@@ -17,7 +17,7 @@ ssort [] = []
 ssort [x] = [x]
 ssort l = m:ssort l' where
     m = minimo l
-    l'= delete m l
+    l'= mdelete m l
 ----------------------------------------
 --- Insertion Sort
 
@@ -45,9 +45,11 @@ qsort (x:t) = qsort menores ++ [x] ++ qsort mayores where
 qsort2 :: Ord a => [a] -> [a]
 qsort2 [] = []
 qsort2 [x] = [x]
-qsort2 (x:t) = let
-    menores = [j | j<-t, j < x]
-    mayores = [j | j <- t, j >= x] in qsort2 menores ++ [x] ++ qsort2 mayores
+qsort2 (x:t) = 
+    let
+        menores = [j | j<-t, j < x];
+        mayores = [j | j <- t, j >= x] 
+    in qsort2 menores ++ [x] ++ qsort2 mayores
 ----------------------------------------
 --- Merge Sort
 
@@ -76,10 +78,12 @@ merge (x:xs) (y:ys)
 msort :: Ord a => [a] -> [a]
 msort []= []
 msort [x] = [x]
-msort lista = let
-    (i,j) = split lista;
-    i' = msort i;
-    j' = msort j in merge i' j'
+msort lista = 
+    let
+        (i,j) = split lista;
+        i' = msort i;
+        j' = msort j 
+    in merge i' j'
 --------------------------------
 --- Previamente ver el funcionamiento de
 --- La funcion de orden superior "foldr"
