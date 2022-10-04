@@ -1,4 +1,6 @@
 --Suma de elementos de una lista
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Use foldr" #-}
 
 suma :: Num p => [p] -> p
 suma[] = 0
