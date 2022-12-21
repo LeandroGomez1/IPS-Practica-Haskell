@@ -24,12 +24,9 @@ todos (x:xs)
     | not (todos [x]) = False
     | otherwise = todos xs
 
-
-{-
 codes :: [char] -> [Int]
 codes [] = []
-codes (x:xs) =  : codes xs
--}
+codes (x:xs) = [a | (x, a) <- zip (x:xs) [1..27]]
 
 restos :: [Int] -> Int -> [Int]
 restos _ 0 = error "No existe tal division"
@@ -67,8 +64,10 @@ letras (x:xs)
     | isLetra x = x : letras xs
     | otherwise = letras xs
 
-masDe :: [[a]] -> Int -> [[a]]
+{- masDe :: [[a]] -> Int -> [[a]]
+masDe [] = []
 masDe [] _ = []
-masDe [[]] _ = []
-masDe ([]:_:_) _ = [[]]
-masDe ((x:xs):xss) n = [x:xs |(x:xs) <- (x:xs):xss, (1 + contador xs) > n]
+masDe (x:(xs:xss)) n =
+        if length (x:(xs:xss)) > n then (x:(xs:xss)) : masDe (xs:xss)
+        else masDe (xs:xss)
+-}
