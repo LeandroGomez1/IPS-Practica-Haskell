@@ -29,12 +29,17 @@ pot :: (Integral b, Num a) => b -> a -> a
 pot exp x = x ^ exp
 
 max3 :: Ord a => a -> a -> a -> a
-max3 x1 x2 x3
-  | x1 >= x2 && x1 >= x3 = x1
-  | x2 >= x1 && x2 >= x3 = x2
-  | otherwise = x3
-
---max3 x1 x2 x3 = maximum [x1, x2, x3]
+max3 x y z
+    | (x > y) && (x > z) = x
+    | (y > x) && (y > z) = y
+    | otherwise = z
 
 swap :: t1 -> (t1 -> t2) -> t2
 swap x y = y x
+
+myXor :: Int -> Int -> Int
+myXor 0 0 = 0
+myXor 0 1 = 1
+myXor 1 0 = 1
+myXor 1 1 = 0
+myXor _ _ = error "El valor ingresado no es correcto"
