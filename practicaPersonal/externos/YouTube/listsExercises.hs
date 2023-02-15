@@ -10,3 +10,10 @@ nub [x] = [x]
 nub (x:xs)
     | elem' x (x:xs) = nub xs
     | otherwise = x : nub xs
+
+isAsc :: [Int] -> Bool
+isAsc [] = False
+isAsc [x] = True
+isAsc (x:t:xs)
+    | x > t = False
+    | otherwise = isAsc (t:xs)
