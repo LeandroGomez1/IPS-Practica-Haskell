@@ -1,5 +1,5 @@
 inserta :: (Ord a) => a -> [a] -> [a]
-inserta _ [] = []
+inserta n [] = [n]
 inserta n (x:xs)
     | n <= x = n : (x:xs)
-    | otherwise = inserta n xs
+    | otherwise = x : inserta n xs
