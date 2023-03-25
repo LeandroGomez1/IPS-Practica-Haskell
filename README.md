@@ -6,6 +6,10 @@ Instalacion de Haskell
     -Correr el siguiente comando en powershell
   
     Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true
+    
+    -Si sale error con HLS, correr:
+    
+    ghcup --metadata-caching=0 install hls
 
 -------------------------------------
   Instalacion para Linux/WSL:
