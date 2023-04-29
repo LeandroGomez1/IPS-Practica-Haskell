@@ -8,6 +8,7 @@ headCL (Consnoc a b c) = a
 tailCL :: CList a -> CList a
 tailCL EmptyCL = error "Lista vacia."
 tailCL (CUnit a) = EmptyCL
+tailCL (Consnoc a EmptyCL c) = CUnit c
 tailCL (Consnoc a b c) = Consnoc (headCL b) (tailCL b) c
 
 isEmptyCL :: CList a -> Bool
@@ -36,9 +37,15 @@ addLastCL (Consnoc a l c) e = Consnoc a (addLastCL l c) e
 {-
 initsCL :: CList a -> CList a
 initsCL EmptyCL = EmptyCL
-initsCL (CUnit a) = CUnit a
+initsCL (CUnit a) = Consnoc CUnit a
 initsCL  (Consnoc a b c) = 
 -}
+
+inits :: [a] -> [[a]]
+inits [] = []
+inits [x] = [] : [[x]]
+inits xs = inits (init xs) ++ [xs]
+
 
 {-
 lastsCL :: CList a -> CList a
@@ -50,4 +57,6 @@ lastsCL  (Consnoc a b c) =
 {-
 concatCL :: CList (CList a) -> CList a
 concatCL EmptyCL = EmptyCL
+concatCL (CUnit l) = l
+concatCL (Consnoc a l c) = 
 -}
