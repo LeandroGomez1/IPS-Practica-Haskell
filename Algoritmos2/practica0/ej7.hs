@@ -67,8 +67,16 @@ longitudes ((x:xs):xss) = contador (x:xs) : longitudes xss
 la lista de aquellos pares en los que la primera componente es
 menor que el triple de la segunda -}
 
+orden :: (Num a, Ord a) => [(a,a)] -> [(a,a)]
+orden [] = []
+orden ((a,b):xs)
+    | a < (3 * b) = (a,b) : orden xs
+    | otherwise = orden xs
+
 {- i) 'pares', que dada una lista de enteros, devuelve la lista
 de los elementos pares -}
+
+pares :: [Int] -> 
 
 {- j) 'letras', que dada una lista de caracteres, devuelve la
 lista de aquellos que son letras (minúsculas o mayúsculas) -}
