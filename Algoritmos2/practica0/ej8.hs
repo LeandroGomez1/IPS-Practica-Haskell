@@ -5,12 +5,15 @@ ver su definición en https://hoogle.haskell.org/
 
 -- a) 'suma', que suma todos los elementos de una lista de números
 
-
+suma :: (Num a) => [a] -> a
+suma (x:xs) = foldr (+) x xs
 
 {- b) 'alguno', que devuelve True si algún elemento de una
 lista de valores booleanos es True, y False en caso
 contrario -}
 
+alguno :: [Bool] -> Bool
+alguno l
 
 {- c) 'todos', que devuelve True si todos los elementos de
 una lista de valores booleanos son True, y False en caso
