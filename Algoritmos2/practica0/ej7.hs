@@ -40,8 +40,9 @@ codes (x:xs) = ord x : codes xs
 división de los elementos de una lista de números dada por otro
 número dado -}
 
---restos :: (Num a) => a -> a -> a
---restos x n = x - (x / n)
+restos :: Int -> [Int] -> [Int]
+restos _ [] = []
+restos n (x:xs) = x `mod` n : restos n xs
 
 {- f) 'cuadrados', que dada una lista de números, devuelva la
 lista de sus cuadrados -}
