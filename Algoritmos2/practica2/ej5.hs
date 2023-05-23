@@ -3,14 +3,14 @@ data Tree a = EmptyTree | Node a (Tree a) (Tree a) deriving Show
 {- Dado un valor x de tipo a y un entero d, crea un arbol
 binario completo de altura d con el valor x en cada nodo. -}
 
-{- completo :: a -> Int -> Tree a
-completo x 0 = EmptyTree
-completo x d = Node (completo x (d-1)) x (completo x (d-1)) -}
-
 completo :: a -> Int -> Tree a
 completo x 0 = EmptyTree
-completo x d =
-    let l = completo x (d-1)
+completo x d = Node x (completo x (d-1)) (completo x (d-1))
+
+completo' :: a -> Int -> Tree a
+completo' x 0 = EmptyTree
+completo' x d =
+    let l = completo' x (d-1)
     in Node x l l
 
 balanceado :: a -> Int -> Tree a

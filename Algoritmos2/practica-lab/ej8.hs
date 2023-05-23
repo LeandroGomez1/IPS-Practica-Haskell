@@ -21,7 +21,7 @@ una lista de valores booleanos son True, y False en caso
 contrario -}
 
 todos :: [Bool] -> Bool
-todos = foldr (&&) True     --Forma con foldr como pide la consigna
+todos = foldr (&&) True
 
 {- d) 'codes', que dada una lista de caracteres, devuelve la
 lista de sus ordinales -}
@@ -70,6 +70,6 @@ letras = filter (\x -> (x >= 'a' && x <= 'z') || (x >= 'A' && x <= 'Z'))
 {- k) 'masDe', que dada una lista de listas 'xss' y un
 número 'n', devuelve la lista de aquellas listas de 'xss'
 con longitud mayor que 'n' -}
-
+{-
 masDe :: [[a]] -> Int -> [[a]]
-masDe xss n = filter (map (foldr (\x -> x (+) 1) 0) xss > n) xss    -- ¡¡¡¡CORREGIR!!!!
+masDe xss n = filter (map (foldr (\x -> x (+) 1) 0) xss > n) xss -}   -- ¡¡¡¡CORREGIR!!!!
