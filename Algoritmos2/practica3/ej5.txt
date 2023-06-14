@@ -1,0 +1,24 @@
+Sean f,g: N->R asintoticamente no negativas y h(n) = f(n) + g(n), demostrar que
+    h(n) perteneciente a Θ(max(f(n),g(n)))
+
+h(n) pertenece a O(max(f(n),g(n)))
+h(n) pertenece a Ω(max(f(n),g(n)))
+...............................................
+h(n) pertenece a O(max(f(n),g(n)))
+
+encontrar n0    c pertenece a R+
+    O <= f(n) + g(n) <= c.(max(f(n),g(n)))
+
+supongo (max(f(n),g(n))) = f(n)
+    f(n) + g(n) <= f(n) + f(n) = 2.f(n) = 2.(max(f,g))
+
+supongo max(f,g) = g(n)
+    f(n) + g(n) <= g(n) + g(n) = 2.g(n) = 2.(max(f,g))
+
+...............................................
+f(n) asintoticamente no negativas existe N0
+para todo n >= N0   O <= f(n)
+
+g(n) asintoticamente no negativas existe N1
+para todo n >= N1   O <= g(n)
+

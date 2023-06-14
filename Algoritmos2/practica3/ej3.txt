@@ -1,0 +1,63 @@
+a) n^2 pertenece a O(n^3)
+
+O: sea f N->R g N->R se dice que 
+f(n) pertenece a O(g(x)) si existe c perteneciente a R+, n0 perteneciente a N 
+para todo n >= n0
+
+O <= f(n) <= c.g(x)
+
+f(n) = n^2
+g(x) = n^3
+
+O <= n^2 <= c.n^3
+div por n^2
+O <= 1 <= c.n
+
+n0 = 1  n0 = 2
+c = 1   c = 1/2
+
+-----------------------------------------
+b) n^2 pertenece a Ω(n^3)
+
+Omega: sea f,g: N->R se dice que
+f(n) pertenece a Ω(g(x)) si existe c perteneciente a R+, n0 perteneciente a N
+para todo n >= n0
+
+O <= c.g(x) <= f(n)
+
+f(n) = n^2
+g(n) = n^3
+
+O <= c.n^3 <= n^2
+div por n^2
+O <= c.n <= 1       ¡¡¡ABSURDO!!!
+
+-----------------------------------------
+c) 2^n pertenece a Θ(2^(n+1))
+2^n pertenece a O(2^(n+1))
+2^n pertenece a Ω(2^(n+1))
+
+f(n) = 2^n
+g(n) = (2^(n+1))
+
+O <= 2^n <= c.(2^(n+1))
+2^n <= 2.2^n = 1.(2^(n+1))
+c = 1   n = 1
+
+.........................................
+2^n pertenece a Ω(2^(n+1))
+f(n) = 2^n     g(x) = 2^(n+1)   
+
+c pertenece a R+ N0 pertenece a N
+
+O <= c.2^(n+1) <= 2^n
+
+2^(n+1) = 2.2^n
+2^(n+1)) <= 2.2^n
+(1/2).2^(n+1)) <= 2^n
+
+c = 1/2
+
+-----------------------------------------
+d) n! pertenece a Θ((n+1)!)
+
