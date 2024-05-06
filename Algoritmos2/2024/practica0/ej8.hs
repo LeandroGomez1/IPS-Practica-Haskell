@@ -1,0 +1,67 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Use or" #-}
+{-# HLINT ignore "Eta reduce" #-}
+{-# HLINT ignore "Use sum" #-}
+module Practica0 where
+
+import Data.List
+
+{-
+8) Redefinir las funciones del ejercicio anterior usando foldr, map y filter.
+ver su definición en https://hoogle.haskell.org/
+-}
+
+-- a) 'suma', que suma todos los elementos de una lista de números
+suma :: (Num a) => [a] -> a
+suma l = foldr (+) 0 l
+
+--b) 'alguno', que devuelve True si algún elemento de una
+--lista de valores booleanos es True, y False en caso
+--contrario
+alguno :: [Bool] -> Bool
+alguno l = foldr (||) False l
+
+--c) 'todos', que devuelve True si todos los elementos de
+--una lista de valores booleanos son True, y False en caso
+--contrario
+todos :: [Bool] -> Bool
+todos l = foldr (&&) True l
+
+--d) 'codes', que dada una lista de caracteres, devuelve la
+--lista de sus ordinales
+
+codes :: [Char] -> [Int]
+codes xs = map code xs
+
+code :: Char -> Int
+code c = buscar c (zip (['a'..'n'] ++ ['ñ'] ++ ['o'..'z']) [1..])
+
+buscar :: Char -> [(Char,Int)] -> Int
+buscar c [] = error "El caracter no tiene ordinal"
+buscar c ((x,i):xs)
+    | x == c = i
+    | otherwise = buscar c xs
+
+--e) 'restos', que calcula la lista de los restos de la
+--división de los elementos de una lista de números dada por otro
+--número dado
+
+--f) 'cuadrados', que dada una lista de números, devuelva la
+--lista de sus cuadrados
+
+--g) 'longitudes', que dada una lista de listas, devuelve la
+--lista de sus longitudes
+
+--h) 'orden', que dada una lista de pares de números, devuelve
+--la lista de aquellos pares en los que la primera componente es
+--menor que el triple de la segunda
+
+--i) 'pares', que dada una lista de enteros, devuelve la lista
+--de los elementos pares
+
+--j) 'letras', que dada una lista de caracteres, devuelve la
+--lista de aquellos que son letras (minúsculas o mayúsculas)
+
+--k) 'masDe', que dada una lista de listas 'xss' y un
+--número 'n', devuelve la lista de aquellas listas de 'xss'
+--con longitud mayor que 'n'
