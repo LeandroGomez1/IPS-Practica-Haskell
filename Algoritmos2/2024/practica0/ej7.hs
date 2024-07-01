@@ -57,15 +57,12 @@ restos 0 _ = error "No es posible dividir por 0"
 restos _ [] = []
 restos n (x:xs) = resto n x : restos n xs
 
-divisionEntera' _ 0 _ = error "No es posible dividir por cero."
-divisionEntera' x n d
-    | n * d < x = divisionEntera' x n (d + 1)
+resto n x = x - divisionEntera x n 1 * n
+
+divisionEntera x n d
+    | n * d < x = divisionEntera x n (d + 1)
     | n * d == x = d
     | otherwise = d-1
-
-divisionEntera x n = divisionEntera' x n 1
-
-resto n x = x - divisionEntera x n * n
 
 --f) 'cuadrados', que dada una lista de números, devuelva la
 --lista de sus cuadrados
@@ -88,15 +85,10 @@ longitud (x:xs) = 1 + longitud xs
 --menor que el triple de la segunda
 orden :: (Num a, Ord a) => [(a,a)] -> [(a,a)]
 orden [] = []
-orden (x:xs)
-    | isMenorTriple x = x : orden xs
+orden ((x,y):xs)
+    | x < (y*3) = (x,y) : orden xs
     | otherwise = orden xs
-
-isMenorTriple :: (Num a, Ord a) => (a,a) -> Bool
-isMenorTriple (x,y)
-    | x < (y*3) = True
-    | otherwise = False
-
+    
 --i) 'pares', que dada una lista de enteros, devuelve la lista
 --de los elementos pares
 pares :: [Int] -> [Int]

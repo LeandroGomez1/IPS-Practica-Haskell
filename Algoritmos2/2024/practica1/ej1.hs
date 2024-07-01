@@ -1,12 +1,6 @@
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-{-# HLINT ignore "Use foldr" #-}
-{-# HLINT ignore "Fuse foldr/map" #-}
-{-# HLINT ignore "Use concat" #-}
-{-# HLINT ignore "Use zipWith" #-}
-
 borrarUltimo :: [a] -> [a]
 borrarUltimo [] = []
-borrarUltimo [x,y] = []
+borrarUltimo [x] = []
 borrarUltimo (x:xs) = x : borrarUltimo xs
 -------------------------------------------
 collect :: [Char] -> [([Char], Int)] -> [Int]
