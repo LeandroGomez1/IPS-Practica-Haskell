@@ -37,18 +37,15 @@ todos (x:xs)
 
 --d) 'codes', que dada una lista de caracteres, devuelve la
 --lista de sus ordinales
-code :: Char -> Int
-code c = buscar c (zip (['a'..'n'] ++ ['ñ'] ++ ['o'..'z']) [1..])
-
-buscar :: Char -> [(Char,Int)] -> Int
-buscar c [] = error "El caracter no tiene ordinal"
-buscar c ((x,i):xs)
-    | x == c = i
-    | otherwise = buscar c xs
-
-codes ::[Char] -> [Int]
+codes :: [Char] -> [Int]
 codes [] = []
-codes (x:xs) = code x : codes xs
+codes (x:xs) = code x [(c,i) | (c,i) <- zip (['a'..'n'] 
+    ++ ['ñ'] ++ ['o'..'z'] ++ ['A'..'N'] ++ ['Ñ'] ++ ['O'..'Z']) [1..]] : codes xs
+
+code :: Char -> [(Char,Int)] -> Int
+code x ((c,i):xs)
+    | x == c = i
+    | otherwise = code x xs
 
 --e) 'restos', que calcula la lista de los restos de la
 --división de los elementos de una lista de números dada por otro
